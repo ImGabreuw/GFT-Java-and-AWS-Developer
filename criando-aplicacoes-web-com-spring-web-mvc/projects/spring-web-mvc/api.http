@@ -1,0 +1,8 @@
+### Get all
+GET {{host}}/api/v1/jedi
+
+### Get by ID
+GET {{host}}/api/v1/jedi/0
+
+### Get by ID thowing Exception
+GET {{host}}/api/v1/jedi/10
