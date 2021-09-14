@@ -1,8 +1,29 @@
-### Get all
+### Find all
 GET {{host}}/api/v1/jedi
 
-### Get by ID
-GET {{host}}/api/v1/jedi/0
+### Find by ID
+GET {{host}}/api/v1/jedi/1
 
-### Get by ID thowing Exception
-GET {{host}}/api/v1/jedi/10
+### Find by ID (Expected response: 404 not found)
+GET {{host}}/api/v1/jedi/100
+
+### Save Jedi
+POST {{host}}/api/v1/jedi
+Content-Type: application/json
+
+{
+  "name": "André",
+  "lastname": "Costa"
+}
+
+### Update Jedi
+PUT {{host}}/api/v1/jedi/1
+Content-Type: application/json
+
+{
+  "name": "André",
+  "lastname": "Gomes"
+}
+
+### Delete Jedi by ID
+DELETE {{host}}/api/v1/jedi/1
