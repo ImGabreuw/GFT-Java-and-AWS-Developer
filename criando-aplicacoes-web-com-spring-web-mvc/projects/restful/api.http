@@ -1,0 +1,29 @@
+### Find all soldiers
+GET {{host}}/api/v1/soldiers
+
+### Find soldier by CPF
+GET {{host}}/api/v1/soldiers/123456789
+
+### Create soldier
+POST {{host}}/api/v1/soldiers
+Content-Type: application/json
+
+{
+  "cpf": "987654321",
+  "name": "Ricardo",
+  "tribe": "Humano",
+  "weapon": "Espada"
+}
+
+### Update soldier
+PUT {{host}}/api/v1/soldiers/123456789
+Content-Type: application/json
+
+{
+  "name": "Ricardo",
+  "tribe": "Humano",
+  "weapon": "Espada"
+}
+
+### Delete soldier by CPF
+DELETE {{host}}/api/v1/soldiers/123456789
