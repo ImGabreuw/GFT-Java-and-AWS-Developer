@@ -3,6 +3,7 @@ package me.gabreuw.springwebmvc.rest;
 import lombok.RequiredArgsConstructor;
 import me.gabreuw.springwebmvc.model.Jedi;
 import me.gabreuw.springwebmvc.repository.JediRepository;
+import me.gabreuw.springwebmvc.service.JediService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,25 +17,27 @@ import static org.springframework.http.HttpStatus.CREATED;
 @RequiredArgsConstructor
 public class JediResource {
 
-    private final JediRepository repository;
+    private final JediService service;
 
     @GetMapping
     public ResponseEntity<List<Jedi>> findAll() {
         return ResponseEntity
                 .ok()
-                .body(repository.findAll());
+                .body(service.findAll());
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Jedi> findById(@PathVariable Long id) {
-        return repository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Jedi recoveredJedi = service.findById(id);
+
+        return ResponseEntity
+                .ok()
+                .body(recoveredJedi);
     }
 
     @PostMapping
     public ResponseEntity<Void> save(@Valid @RequestBody Jedi jedi) {
-        repository.save(jedi);
+        service.save(jedi);
 
         return ResponseEntity
                 .status(CREATED)
@@ -46,21 +49,16 @@ public class JediResource {
             @PathVariable Long id,
             @Valid @RequestBody Jedi jedi
     ) {
-        return repository.findById(id)
-                .map(recoveredJedi -> {
-                    recoveredJedi.setName(jedi.getName());
-                    recoveredJedi.setLastname(jedi.getLastname());
+        Jedi updatedJedi = service.update(id, jedi);
 
-                    return ResponseEntity
-                            .ok()
-                            .body(repository.save(recoveredJedi));
-                })
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity
+                .ok()
+                .body(updatedJedi);
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.deleteById(id);
 
         return ResponseEntity
                 .noContent()

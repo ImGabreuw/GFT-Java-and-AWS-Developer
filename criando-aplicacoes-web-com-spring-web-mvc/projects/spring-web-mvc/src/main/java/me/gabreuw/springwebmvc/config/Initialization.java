@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class Initialize implements CommandLineRunner {
+public class Initialization implements CommandLineRunner {
 
     private final JediRepository repository;
 
