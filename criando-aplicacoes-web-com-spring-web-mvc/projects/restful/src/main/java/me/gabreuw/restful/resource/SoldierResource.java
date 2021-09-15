@@ -2,6 +2,7 @@ package me.gabreuw.restful.resource;
 
 import lombok.RequiredArgsConstructor;
 import me.gabreuw.restful.domain.Soldier;
+import me.gabreuw.restful.dto.SoldierListResponse;
 import me.gabreuw.restful.service.SoldierService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,17 +19,17 @@ public class SoldierResource {
     private final SoldierService service;
 
     @GetMapping
-    public ResponseEntity<List<Soldier>> findAll() {
-        List<Soldier> soldiers = service.findAll();
+    public ResponseEntity<List<SoldierListResponse>> findAll() {
+        List<SoldierListResponse> soldiers = service.findAll();
 
         return ResponseEntity
                 .ok()
                 .body(soldiers);
     }
 
-    @GetMapping(path = "/{cpf}")
-    public ResponseEntity<Soldier> findByCpf(@PathVariable String cpf) {
-        Soldier retrievedSoldier = service.findByCpf(cpf);
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Soldier> findById(@PathVariable Long id) {
+        Soldier retrievedSoldier = service.findById(id);
 
         return ResponseEntity
                 .ok()
@@ -44,21 +45,21 @@ public class SoldierResource {
                 .body(savedSoldier);
     }
 
-    @PutMapping(path = "/{cpf}")
+    @PutMapping(path = "/{id}")
     public ResponseEntity<Soldier> update(
-            @PathVariable String cpf,
+            @PathVariable Long id,
             @RequestBody Soldier soldier
     ) {
-        Soldier updatedSoldier = service.update(cpf, soldier);
+        Soldier updatedSoldier = service.update(id, soldier);
 
         return ResponseEntity
                 .ok()
                 .body(updatedSoldier);
     }
 
-    @DeleteMapping(path = "/{cpf}")
-    public ResponseEntity<Void> deleteByCpf(@PathVariable String cpf) {
-        service.deleteByCpf(cpf);
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteByCpf(@PathVariable Long id) {
+        service.deleteById(id);
 
         return ResponseEntity
                 .noContent()

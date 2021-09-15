@@ -1,8 +1,8 @@
 ### Find all soldiers
 GET {{host}}/api/v1/soldiers
 
-### Find soldier by CPF
-GET {{host}}/api/v1/soldiers/123456789
+### Find soldier by ID
+GET {{host}}/api/v1/soldiers/1
 
 ### Create soldier
 POST {{host}}/api/v1/soldiers
