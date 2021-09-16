@@ -7,6 +7,7 @@ GET {{host}}/api/v1/soldiers/1
 ### Create soldier
 POST {{host}}/api/v1/soldiers
 Content-Type: application/json
+Authorization: TESTE
 
 {
   "cpf": "987654321",

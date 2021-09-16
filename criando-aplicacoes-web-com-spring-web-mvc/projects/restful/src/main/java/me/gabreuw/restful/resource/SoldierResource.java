@@ -1,6 +1,7 @@
 package me.gabreuw.restful.resource;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import me.gabreuw.restful.domain.Soldier;
 import me.gabreuw.restful.dto.SoldierListResponse;
 import me.gabreuw.restful.service.SoldierService;
@@ -13,6 +14,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 @RequestMapping(path = "/api/v1/soldiers")
+@Log4j2
 @RequiredArgsConstructor
 public class SoldierResource {
 
@@ -39,6 +41,8 @@ public class SoldierResource {
     @PostMapping
     public ResponseEntity<Soldier> create(@RequestBody Soldier soldier) {
         Soldier savedSoldier = service.create(soldier);
+
+        log.info("Entrou no método create!");
 
         return ResponseEntity
                 .status(CREATED)
