@@ -12,7 +12,7 @@ Authorization: TESTE
 {
   "cpf": "987654321",
   "name": "Ricardo",
-  "tribe": "Humano",
+  "tribe": "HUMANO",
   "weapon": "Espada"
 }
 

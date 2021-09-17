@@ -3,6 +3,7 @@ package me.gabreuw.restful.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import me.gabreuw.restful.domain.enums.Tribe;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Soldier {
 
     private String name;
 
-    private String tribe;
+    private Tribe tribe;
 
     private String weapon;
 

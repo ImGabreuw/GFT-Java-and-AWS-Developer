@@ -2,6 +2,7 @@ package me.gabreuw.restful.config;
 
 import lombok.RequiredArgsConstructor;
 import me.gabreuw.restful.domain.Soldier;
+import me.gabreuw.restful.domain.enums.Tribe;
 import me.gabreuw.restful.repository.SoldierRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ public class Initialization implements CommandLineRunner {
                         1L,
                         "123456789",
                         "Legolas",
-                        "Elfo",
+                        Tribe.ELF,
                         "Arco e flecha",
                         "Vivo"
                 ),
@@ -29,7 +30,7 @@ public class Initialization implements CommandLineRunner {
                         2L,
                         "987654321",
                         "Ricardo",
-                        "Humano",
+                        Tribe.HUMAN,
                         "Espada",
                         "Morto"
                 )

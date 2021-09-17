@@ -43,6 +43,7 @@ public class SoldierResource {
         Soldier savedSoldier = service.create(soldier);
 
         log.info("Entrou no método create!");
+        log.info(savedSoldier);
 
         return ResponseEntity
                 .status(CREATED)
