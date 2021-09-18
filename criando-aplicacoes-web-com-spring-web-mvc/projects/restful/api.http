@@ -28,3 +28,5 @@ Content-Type: application/json
 
 ### Delete soldier by CPF
 DELETE {{host}}/api/v1/soldiers/123456789
+
+###
