@@ -24,30 +24,33 @@ public class StockQuotesApiApplication {
 
     @Scheduled(fixedDelay = 1_000)
     public void generateData() {
-        Quote teste = repository.findFirstBySymbolOrderByTimestampDesc("TESTE")
-                .map(this::generateNewData)
-                .orElseGet(this::initData);
         log.info(
-                teste
+                repository.findFirstBySymbolOrderByTimestampDesc("TESTE")
+                        .map(this::generateNewData)
+                        .orElseGet(this::initData)
         );
     }
 
     private Quote initData() {
-        return Quote.builder()
+        Quote initQuote = Quote.builder()
                 .symbol("TESTE")
                 .openValue(0.2222)
                 .closeValue(0.2222)
                 .timestamp(new Date())
                 .build();
+
+        return repository.save(initQuote);
     }
 
     private Quote generateNewData(Quote quote) {
-        return Quote.builder()
+        Quote newQuote = Quote.builder()
                 .symbol(quote.getSymbol())
                 .openValue(quote.getOpenValue() * new RandomDataGenerator().nextUniform(-0.10, 0.10))
                 .closeValue(quote.getCloseValue() * new RandomDataGenerator().nextUniform(-0.10, 0.10))
                 .timestamp(new Date())
                 .build();
+
+        return repository.save(newQuote);
     }
 
 }
