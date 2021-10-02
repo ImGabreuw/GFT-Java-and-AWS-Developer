@@ -46,6 +46,87 @@
 
   * Proxy
 
+### Strategy
+
+* **Definição**: simplificar a variação de algoritmos para a resolução de um mesmo problema
+
+* **Representação**
+
+  ![](./assets/padrao-strategy.png)
+
+* **Vantagem**: possibilita a implementação de diferentes comportamentos por causa da utilização de polimorfismo
+
+* **Exemplo de implementação**
+
+  * **Contexto** (Robot)
+
+    ```java
+    public class Robot {
+
+      private Behavior behavior;
+
+      public void setBehavior(Behavior behavior) {
+          this.behavior = behavior;
+      }
+
+      public void move() {
+          behavior.move();
+      }
+
+    }
+    ```
+
+  * **Estratégia** (Behavior)
+
+    ```java
+    public interface Behavior {
+
+      void move();
+
+    }
+    ```
+
+  * **Implementações da estratégia**
+
+    * `AggressiveBehavior`
+
+      ```java
+      public class AggressiveBehavior implements Behavior {
+
+        @Override
+        public void move() {
+          System.out.println("Movendo-se agressivamente...");
+        }
+
+      }
+      ```
+
+    * `DefensiveBehavior`
+
+      ```java
+      public class DefensiveBehavior implements Behavior {
+
+        @Override
+        public void move() {
+          System.out.println("Movendo-se defensivamente...");
+        }
+
+      }
+      ```
+
+    * `NormalBehavior`
+
+      ```java
+      public class NormalBehavior implements Behavior {
+
+        @Override
+        public void move() {
+          System.out.println("Movendo-se normalmente...");
+        }
+
+      }
+      ```
+
 ### Singleton
 
 * **Definição**: permitir a criação de uma única instância de uma classe e fornecer um modo para recuperá-la

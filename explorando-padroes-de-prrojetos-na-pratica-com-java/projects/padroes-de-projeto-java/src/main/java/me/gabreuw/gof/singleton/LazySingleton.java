@@ -1,4 +1,4 @@
-package me.gabreuw.gof;
+package me.gabreuw.gof.singleton;
 
 public class LazySingleton {
 
