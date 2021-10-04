@@ -21,3 +21,11 @@ l
 <src/main/java/me/gabreuw/gof/strategy/DefensiveBehavior.java,2/d/2d143d23d73f1f7b39e2f6451b85bf69596abe53
 g
 7src/main/java/me/gabreuw/gof/strategy/StrategyTest.java,1/e/1e435a9e729af92f89701e58ffd03b7e9dc2f4b3
+r
+Bsrc/main/java/me/gabreuw/gof/facade/subsystems/crm/CrmService.java,7/f/7f8ead41bb561b89454edf77c3f4ec5266e474c9
+_
+/src/main/java/me/gabreuw/gof/facade/Facade.java,3/1/31e0d12e0ec7d37ba2ad25fc9dc7e08b59149579
+n
+>src/main/java/me/gabreuw/gof/facade/subsystems/cep/CepAPI.java,2/8/2806046b71bf189c6ac1c3b760ff33328d9c4e42
+c
+3src/main/java/me/gabreuw/gof/facade/FacadeTest.java,1/9/1954eb7530ccea6e41b2fc69bcf57b0022f54012

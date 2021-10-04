@@ -225,6 +225,61 @@
 
   > IoC = Inversão de controle | DI = injeção de dependência
 
-* **Strategy**: `@Service` e `@Repository`
+* **Strategy**: `@Service` (qualquer classe de serviço) e`@Repository` (`JpaRepository` / `CrudRepository`)
+
+  * **Exemplo de uma classe de serviço**
+
+    * Abstração da classe de serviço (padrão **Strategy**)
+
+      ```java
+      public interface ClienteService {
+
+        Iterable<Cliente> buscarTodos();
+
+        Cliente buscarPorId(Long id);
+
+        void inserir(Cliente cliente);
+
+        void atualizar(Cliente cliente);
+
+        void deletar(Long id);
+
+      }
+      ```
+
+    * Implementação
+
+      ```java
+      public class ClienteServiceImpl implements ClienteService {
+
+        @Override
+        public Iterable<Cliente> buscarTodos() {
+            // TODO
+            return null;
+        }
+
+        @Override
+        public Cliente buscarPorId(Long id) {
+            // TODO
+            return null;
+        }
+
+        @Override
+        public void inserir(Cliente cliente) {
+            // TODO
+        }
+
+        @Override
+        public void atualizar(Cliente cliente) {
+            // TODO
+        }
+
+        @Override
+        public void deletar(Long id) {
+            // TODO
+        }
+
+      }
+      ```
 
 * **Facade**: abstração da complexidade das seguintes integrações: *Spring Data JPA* e *OpenFeign* (ViaCEP)
