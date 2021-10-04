@@ -218,3 +218,13 @@
 
       }
       ```
+
+### Padrões de Projetos no Spring
+
+* **Singleton**: `@Bean` e `@Autowired` (relacionado com IoC e DI)
+
+  > IoC = Inversão de controle | DI = injeção de dependência
+
+* **Strategy**: `@Service` e `@Repository`
+
+* **Facade**: abstração da complexidade das seguintes integrações: *Spring Data JPA* e *OpenFeign* (ViaCEP)
