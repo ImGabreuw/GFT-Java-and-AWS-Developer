@@ -46,6 +46,14 @@
 
   * Proxy
 
+### Facade
+
+* **Definição**: prover uma interface que reduza a complexidade nas integrações com subsistemas
+
+* **Representação**
+
+  ![](./assets/representacao-facade.png)
+
 ### Strategy
 
 * **Definição**: simplificar a variação de algoritmos para a resolução de um mesmo problema
